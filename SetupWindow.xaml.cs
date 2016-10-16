@@ -93,7 +93,7 @@ namespace NintendoSpy
         private void SourceSelectComboBox_SelectionChanged (object sender, SelectionChangedEventArgs e)
         {
             if (_vm.Sources.SelectedItem == null) return;
-            _vm.ComPortOptionVisibility = _vm.Sources.SelectedItem.RequiresComPort ? Visibility.Visible : Visibility.Hidden;
+            _vm.DevicePortOptionVisibility = _vm.Sources.SelectedItem.DevicePortType > 0 ? Visibility.Visible : Visibility.Hidden;
             _vm.Skins.UpdateContents (_skins.Where (x => x.Type == _vm.Sources.SelectedItem));
             _vm.Skins.SelectFirst ();
         }
@@ -137,12 +137,12 @@ namespace NintendoSpy
         public ListView <InputSource> Sources { get; set; }
         public int DelayInMilliseconds { get; set; }
 
-        Visibility _comPortOptionVisibility;
-        public Visibility ComPortOptionVisibility {
-            get { return _comPortOptionVisibility; }
+        Visibility _devicePortOptionVisibility;
+        public Visibility DevicePortOptionVisibility {
+            get { return _devicePortOptionVisibility; }
             set {
-                _comPortOptionVisibility = value;
-                NotifyPropertyChanged ("ComPortOptionVisibility");
+                _devicePortOptionVisibility = value;
+                NotifyPropertyChanged ("DevicePortOptionVisibility");
             }
         }
 
