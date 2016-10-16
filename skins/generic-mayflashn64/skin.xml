@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<skin name="May Flash N64 Adapter (High-Res)" author="Forstride / iotku" type="generic">
+<skin name="N64 (via Mayflash) (Hi-Res)" author="Forstride / iotku" type="generic">
     <background name="Grey" image="../n64-highres/pad-grey.png" />
     <background name="Black" image="../n64-highres/pad-black.png" />
     <background name="Red" image="../n64-highres/pad-red.png" />
