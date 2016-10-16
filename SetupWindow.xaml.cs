@@ -47,11 +47,8 @@ namespace NintendoSpy
 
             _portListUpdateTimer = new DispatcherTimer ();
             _portListUpdateTimer.Interval = TimeSpan.FromSeconds (1);
-            _portListUpdateTimer.Tick += (sender, e) => updatePortList ();
+            _portListUpdateTimer.Tick += (sender, e) => updatePortList (0);
             _portListUpdateTimer.Start ();
-
-            updatePortList ();
-            _vm.Ports.SelectFirst ();
         }
 
         void showSkinParseErrors (List <string> errs) {
@@ -61,8 +58,23 @@ namespace NintendoSpy
             MessageBox.Show (msg.ToString (), "NintendoSpy", MessageBoxButton.OK, MessageBoxImage.Error);
         }
 
-        void updatePortList () {
-            _vm.Ports.UpdateContents (SerialPort.GetPortNames ());
+        void updatePortList (int type) {
+            switch (type) {
+                case 0x00: {
+                    break;
+                }
+                case 0x01: { // serial 
+                    _vm.Ports.UpdateContents(SerialPort.GetPortNames());
+                    break;
+                }
+                default: { // xinput and dinput 0-3
+                    string[] inputnum = new string[4] {"1", "2", "3", "4"};
+                    _vm.Ports.UpdateContents(inputnum);
+                    break;
+                }
+            }
+
+            _vm.Ports.SelectFirst();
         }
 
         void goButton_Click (object sender, RoutedEventArgs e) 
@@ -96,6 +108,8 @@ namespace NintendoSpy
             _vm.DevicePortOptionVisibility = _vm.Sources.SelectedItem.DevicePortType > 0 ? Visibility.Visible : Visibility.Hidden;
             _vm.Skins.UpdateContents (_skins.Where (x => x.Type == _vm.Sources.SelectedItem));
             _vm.Skins.SelectFirst ();
+
+            updatePortList (_vm.Sources.SelectedItem.DevicePortType);
         }
 
         private void Skin_SelectionChanged (object sender, SelectionChangedEventArgs e)

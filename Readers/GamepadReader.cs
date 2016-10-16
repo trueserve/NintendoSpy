@@ -22,15 +22,21 @@ namespace NintendoSpy.Readers
         DispatcherTimer _timer;
         Joystick _joystick;
 
-        public GamepadReader ()
+        public GamepadReader (string deviceIndex)
         {
             _dinput = new DirectInput();
+            
+            int inputnum = Convert.ToInt32(deviceIndex);
+            if (inputnum > 0) inputnum--;
  
             var devices = _dinput.GetDevices (DeviceClass.GameController, DeviceEnumerationFlags.AttachedOnly);
             if (devices.Count < 1) {
                 throw new IOException ("GamepadReader could not find a connected gamepad.");
+            } else if (devices.Count <= inputnum) {
+                throw new IOException("GamepadReader can't find this many connected gamepads.");
             }
-            _joystick = new Joystick (_dinput, devices[0].InstanceGuid);
+
+            _joystick = new Joystick (_dinput, devices[inputnum].InstanceGuid);
  
             foreach (var obj in _joystick.GetObjects()) {
                 if ((obj.ObjectType & ObjectDeviceType.Axis) != 0) {

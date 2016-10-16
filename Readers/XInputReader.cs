@@ -40,9 +40,11 @@ namespace NintendoSpy.Readers
         const double TIMER_MS = 30;
 
         DispatcherTimer _timer;
+        uint _devidx;
 
-        public XInputReader ()
+        public XInputReader (string deviceIndex)
         {
+            _devidx = Convert.ToUInt32(deviceIndex);
             _timer = new DispatcherTimer ();
             _timer.Interval = TimeSpan.FromMilliseconds (TIMER_MS);
             _timer.Tick += tick;
@@ -53,7 +55,7 @@ namespace NintendoSpy.Readers
         {
             var state = new XInputState ();
 
-            if (XInputDLL.XInputGetState (0, ref state) > 0) {
+            if (XInputDLL.XInputGetState (_devidx, ref state) > 0) {
                 if (ControllerDisconnected != null) ControllerDisconnected (this, EventArgs.Empty);
                 Finish ();
                 return;
