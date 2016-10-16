@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -68,6 +68,7 @@ namespace NintendoSpy.Readers
             }
 
             int[] pov = state.GetPointOfViewControllers ();
+            int[] axis = state.GetSliders();
 
             outState.SetButton ("up", false);
             outState.SetButton ("right", false);
@@ -87,6 +88,9 @@ namespace NintendoSpy.Readers
             outState.SetAnalog ("rx", (float)state.RotationX / RANGE);
             outState.SetAnalog ("ry", (float)state.RotationY / RANGE);
             outState.SetAnalog ("rz", (float)state.RotationZ / RANGE);
+
+            outState.SetAnalog ("s0", (float)axis[0] / RANGE);
+            outState.SetAnalog ("s1", (float)axis[1] / RANGE);
 
             if (ControllerStateChanged != null) ControllerStateChanged (this, outState.Build ());
         }
