@@ -3,7 +3,7 @@ NintendoSpy
 
 #### [Download the latest NintendoSpy release here.](https://github.com/trueserve/NintendoSpy/releases/latest) (x64 Windows binary)
 
-This project provides a general solution for displaying your controller inputs while speedrunning, or for use in recording inputs for tutorials on how to perform tricks. It supports NES, SNES, Nintendo 64, and GameCube controller signals from an Arduino a, as well as any gamepad connected to your PC. This project also supports true's GrIPdaptor with a controller extension retrofit and passive listener firmware. XBox 360 controllers are supported with a skin out of the box.
+This project provides a general solution for displaying controller inputs. NintendoSpy viewer software can be used as a display while speedrunning, or for use in recording tutorials on how to perform tricks. The Windows software supports NES, SNES, Nintendo 64, and GameCube controller signals from an Arduino, as well as any standard gamepad or XBOX 360 controller connected to your PC. This project also supports **true's GrIPdaptor** with a controller extension retrofit and passive listener firmware. XBOX 360 controllers are supported with a skin out of the box.
 
 NintendoSpy supports custom skins using a straight-forward, XML-based skin format. You can also bind controller input combinations to trigger keyboard presses, which can be useful for hitting checkpoints on your splits. If you create your own skins, feel free to submit them as pull requests to this repository.
 
