@@ -7,9 +7,35 @@
     send a HOME keypress to the OS.
 
     <binding output-key="home">
-        <input button="r" />
-        <input button="l" />
+        <button pushed="b0" />
+        <button pushed="b1" />
     </binding>
+
+    Here is an example that will press END when the analog stick is
+    pushed into a corner.
+
+    <binding output-key="end">
+        <analog axis="x" limit="-0.5"" />
+        <analog axis="y" limit="0.5" />
+    </binding>
+
+    PC Gamepads have the following inputs:
+     * b0 through b127
+     * axes x, y, z, rx, ry, rz, s0, s1
+    Use the skin helper to determine buttons.
+
+    Console controllers should be obvious. Input buttons are lowercase.
+
+    Axes are from -1.000 to 1.000. 0.000 is center.
+
+    Special Key Names:
+    ENTER TAB ESC ESCAPE HOME END LEFT RIGHT UP DOWN PGUP PGDN NUMLOCK SCROLLLOCK
+    PRTSC BREAK BACKSPACE BKSP BS CLEAR CAPSLOCK INS INSERT DEL DELETE HELP F1 F2
+    F3 F4 F5 F6 F7 F8 F9 F10 F11 F12 F13 F14 F15 F16 MULTIPLY * ADD + SUBTRACT -
+    DIVIDE /
+
+    Add new bindings below:
     -->
+
 
 </keybindings>

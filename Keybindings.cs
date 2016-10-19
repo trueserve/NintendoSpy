@@ -18,12 +18,20 @@ namespace NintendoSpy
         {
             readonly public ushort OutputKey;
             readonly public IReadOnlyList <string> RequiredButtons;
+            readonly public IReadOnlyList <string> RequiredAxes;
+            readonly public IReadOnlyList <float> RequiredAxesLimit;
 
             public bool CurrentlyDepressed;
 
-            public Binding (ushort outputKey, IReadOnlyList <string> requiredButtons) {
+            public Binding (ushort outputKey,
+                IReadOnlyList <string> requiredButtons,
+                IReadOnlyList <string> requiredAxes,
+                IReadOnlyList <float> requiredAxesLimit) {
+
                 OutputKey = outputKey;
                 RequiredButtons = requiredButtons;
+                RequiredAxes = requiredAxes;
+                RequiredAxesLimit = requiredAxesLimit;
             }
         }
 
@@ -48,13 +56,20 @@ namespace NintendoSpy
                 if (outputKey == 0) continue;
 
                 List <string> requiredButtons = new List <string> ();
-                foreach (var input in binding.Elements ("input")) {
-                    requiredButtons.Add (input.Attribute ("button").Value);
+                foreach (var input in binding.Elements("button")) {
+                    requiredButtons.Add(input.Attribute("pushed").Value);
                 }
 
-                if (requiredButtons.Count < 1) continue;
+                List<string> requiredAxes = new List<string>();
+                List<float> requiredAxesLimit = new List<float>();
+                foreach (var input in binding.Elements("analog")) {
+                    requiredAxes.Add(input.Attribute("axis").Value);
+                    requiredAxesLimit.Add(Convert.ToSingle(input.Attribute("limit").Value));
+                }
 
-                _bindings.Add (new Binding (outputKey, requiredButtons));
+                if (requiredButtons.Count < 1 && requiredAxes.Count < 1) continue;
+
+                _bindings.Add (new Binding (outputKey, requiredButtons, requiredAxes, requiredAxesLimit));
             }
 
             _reader = reader;
@@ -74,6 +89,20 @@ namespace NintendoSpy
 
                 foreach (var requiredButton in binding.RequiredButtons) {
                     allRequiredButtonsDown &= state.Buttons [requiredButton];
+                }
+
+                for (int i = 0; i < binding.RequiredAxes.Count; i++) {
+                    var axis = binding.RequiredAxes[i];
+                    var value = binding.RequiredAxesLimit[i];
+                    if (value > 0) {
+                        if (state.Analogs[axis] < value) {
+                            allRequiredButtonsDown = false;
+                        }
+                    } else {
+                        if (state.Analogs[axis] > value) {
+                            allRequiredButtonsDown = false;
+                        }
+                    }
                 }
 
                 if (allRequiredButtonsDown && !binding.CurrentlyDepressed) {
