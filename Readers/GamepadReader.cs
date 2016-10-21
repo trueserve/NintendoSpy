@@ -15,7 +15,7 @@ namespace NintendoSpy.Readers
         public event StateEventHandler ControllerStateChanged;
         public event EventHandler ControllerDisconnected;
 
-        const double TIMER_MS = 30;
+        const double TIMER_MS = 12;
         const int RANGE = 1000;
 
         DirectInput _dinput;
@@ -26,13 +26,12 @@ namespace NintendoSpy.Readers
         {
             _dinput = new DirectInput();
             
-            int inputnum = Convert.ToInt32(deviceIndex);
-            if (inputnum > 0) inputnum--;
- 
+            var inputnum = Convert.ToInt16(deviceIndex) - 1;
             var devices = _dinput.GetDevices (DeviceClass.GameController, DeviceEnumerationFlags.AttachedOnly);
+
             if (devices.Count < 1) {
                 throw new IOException ("GamepadReader could not find a connected gamepad.");
-            } else if (devices.Count <= inputnum) {
+            } else if (devices.Count < (inputnum + 1)) {
                 throw new IOException("GamepadReader can't find this many connected gamepads.");
             }
 

@@ -47,7 +47,7 @@ namespace NintendoSpy
 
             _portListUpdateTimer = new DispatcherTimer ();
             _portListUpdateTimer.Interval = TimeSpan.FromSeconds (1);
-            _portListUpdateTimer.Tick += (sender, e) => updatePortList (0);
+            _portListUpdateTimer.Tick += (sender, e) => updatePortList(_vm.Sources.SelectedItem.DevicePortType);
             _portListUpdateTimer.Start ();
         }
 
@@ -61,6 +61,7 @@ namespace NintendoSpy
         void updatePortList (int type) {
             switch (type) {
                 case 0x00: {
+                    MessageBox.Show("updatePortList Failure");
                     break;
                 }
                 case 0x01: { // serial 
@@ -73,8 +74,6 @@ namespace NintendoSpy
                     break;
                 }
             }
-
-            _vm.Ports.SelectFirst();
         }
 
         void goButton_Click (object sender, RoutedEventArgs e) 
@@ -110,6 +109,7 @@ namespace NintendoSpy
             _vm.Skins.SelectFirst ();
 
             updatePortList (_vm.Sources.SelectedItem.DevicePortType);
+            _vm.Ports.SelectFirst();
         }
 
         private void Skin_SelectionChanged (object sender, SelectionChangedEventArgs e)
