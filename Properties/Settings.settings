@@ -8,7 +8,7 @@
     <Setting Name="skin" Type="System.String" Scope="User">
       <Value Profile="(Default)" />
     </Setting>
-    <Setting Name="skincolor" Type="System.String" Scope="User">
+    <Setting Name="skinbg" Type="System.String" Scope="User">
       <Value Profile="(Default)" />
     </Setting>
   </Settings>

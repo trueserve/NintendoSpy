@@ -50,12 +50,12 @@ namespace NintendoSpy.Properties {
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("")]
-        public string skincolor {
+        public string skinbg {
             get {
-                return ((string)(this["skincolor"]));
+                return ((string)(this["skinbg"]));
             }
             set {
-                this["skincolor"] = value;
+                this["skinbg"] = value;
             }
         }
     }
