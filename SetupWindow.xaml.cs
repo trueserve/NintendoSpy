@@ -21,6 +21,8 @@ namespace NintendoSpy
         DispatcherTimer _portListUpdateTimer;
         List <Skin> _skins;
 
+        private int _started = 0;
+
         public SetupWindow ()
         {
             InitializeComponent ();
@@ -40,10 +42,14 @@ namespace NintendoSpy
                 showSkinParseErrors (results.ParseErrors);
             }
 
-            _vm.Skins.UpdateContents (_skins.Where (x => x.Type == InputSource.DEFAULT));
+            var mode = InputSource.DEFAULT;
 
-            _vm.Sources.UpdateContents (InputSource.ALL);
-            _vm.Sources.SelectedItem = InputSource.DEFAULT;
+            if (Properties.Settings.Default.mode.Length > 0) {
+                mode = InputSource.ALL.Where(x => x.Name == Properties.Settings.Default.mode).First();
+            }
+            
+            _vm.Sources.UpdateContents(InputSource.ALL);
+            _vm.Sources.SelectedItem = mode;
 
             _portListUpdateTimer = new DispatcherTimer ();
             _portListUpdateTimer.Interval = TimeSpan.FromSeconds (1);
@@ -78,6 +84,13 @@ namespace NintendoSpy
 
         void goButton_Click (object sender, RoutedEventArgs e) 
         {
+            // save settings
+            Properties.Settings.Default.mode = _vm.Sources.SelectedItem.Name;
+            Properties.Settings.Default.skin = _vm.Skins.SelectedItem.Name;
+            Properties.Settings.Default.skincolor = _vm.Backgrounds.SelectedItem.Name;
+            Properties.Settings.Default.Save();
+
+            // then proceed
             this.Hide ();
 
             try {
@@ -103,10 +116,24 @@ namespace NintendoSpy
 
         private void SourceSelectComboBox_SelectionChanged (object sender, SelectionChangedEventArgs e)
         {
+            var first = 1;
+            
             if (_vm.Sources.SelectedItem == null) return;
             _vm.DevicePortOptionVisibility = _vm.Sources.SelectedItem.DevicePortType > 0 ? Visibility.Visible : Visibility.Hidden;
             _vm.Skins.UpdateContents (_skins.Where (x => x.Type == _vm.Sources.SelectedItem));
-            _vm.Skins.SelectFirst ();
+
+            if (_started == 0 && Properties.Settings.Default.skin.Length > 0) {
+                var res = _skins.Where(x => x.Name == Properties.Settings.Default.skin).ToList();
+                if (res.Count >= 1) {
+                    _vm.Skins.SelectedItem = res[0];
+                    first = 0;
+                }
+                _started = 1;
+            }
+            
+            if (first != 0) {
+                _vm.Skins.SelectFirst();
+            }
 
             updatePortList (_vm.Sources.SelectedItem.DevicePortType);
             _vm.Ports.SelectFirst();
@@ -114,9 +141,23 @@ namespace NintendoSpy
 
         private void Skin_SelectionChanged (object sender, SelectionChangedEventArgs e)
         {
+            var first = 0;
+            
             if (_vm.Skins.SelectedItem == null) return;
             _vm.Backgrounds.UpdateContents (_vm.Skins.SelectedItem.Backgrounds);
-            _vm.Backgrounds.SelectFirst ();
+
+            if (_started == 1 && Properties.Settings.Default.skincolor.Length > 0) {
+                var res = _vm.Skins.SelectedItem.Backgrounds.Where(x => x.Name == Properties.Settings.Default.skincolor).ToList();
+                if (res.Count >= 1) {
+                    _vm.Backgrounds.SelectedItem = res[0];
+                    first = 0;
+                }
+                _started = 2;
+            }
+
+            if (first != 0) {
+                _vm.Backgrounds.SelectFirst();
+            }
         }
     }
 
