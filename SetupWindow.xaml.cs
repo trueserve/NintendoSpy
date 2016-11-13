@@ -54,6 +54,8 @@ namespace NintendoSpy
             _portListUpdateTimer.Interval = TimeSpan.FromSeconds (1);
             _portListUpdateTimer.Tick += (sender, e) => updatePortList(_vm.Sources.SelectedItem.DevicePortType);
             _portListUpdateTimer.Start ();
+
+            _vm.DelayInMilliseconds = Properties.Settings.Default.delay;
         }
 
         void showSkinParseErrors (List <string> errs) {
@@ -87,6 +89,7 @@ namespace NintendoSpy
             Properties.Settings.Default.mode = _vm.Sources.SelectedItem.TypeTag;
             Properties.Settings.Default.skin = _vm.Skins.SelectedItem.Name;
             Properties.Settings.Default.skinbg = _vm.Backgrounds.SelectedItem.Name;
+            Properties.Settings.Default.delay = _vm.DelayInMilliseconds;
             Properties.Settings.Default.Save();
 
             // then proceed

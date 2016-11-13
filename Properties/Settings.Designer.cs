@@ -58,5 +58,17 @@ namespace NintendoSpy.Properties {
                 this["skinbg"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("0")]
+        public int delay {
+            get {
+                return ((int)(this["delay"]));
+            }
+            set {
+                this["delay"] = value;
+            }
+        }
     }
 }
