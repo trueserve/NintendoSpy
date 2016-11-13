@@ -20,7 +20,7 @@
 	<background name="Orange" image="background/orange.png" />
 	<background name="Yellow" image="background/yellow.png" />
 	
-	<background name="----------------------------" image="background/black.png" />
+	<background name="------------------------" image="background/black.png" />
 	
 	<background name="Gray (Dark)" image="background/gray_dark.png" />
 	<background name="Green (Dark)" image="background/green_dark.png" />
@@ -33,7 +33,7 @@
 	<background name="Yellow (Dark)" image="background/yellow_dark.png" />
 	
 	
-	<background name="----------------------------" image="background/black.png" />
+	<background name="------------------------" image="background/black.png" />
 	
 	<background name="TEST" image="background/test.png" />
 	<background name="TEST (Green)" image="background/test_green.png" />

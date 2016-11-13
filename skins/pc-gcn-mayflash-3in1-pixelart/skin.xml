@@ -12,29 +12,29 @@
 	<background name="Emerald Blue" image="background/blue_emerald.png" />
 	<background name="Indigo" image="background/indigo.png" />
 	
-	<background name="----------------------------" image="background/gray.png" />
+	<background name="------------------------" image="background/gray.png" />
 	
 	<background name="Jet Black (Smash)" image="background/smash_black.png" />
 	<background name="White (Smash)" image="background/smash_white.png" />
 	
-	<background name="----------------------------" image="background/gray.png" />
+	<background name="------------------------" image="background/gray.png" />
 	
 	<background name="Star Fox (Arwing)" image="background/sf_arwing.png" />
 	<background name="Star Fox (Gray)" image="background/sf_gray_light.png" />
 	
-	<background name="----------------------------" image="background/gray.png" />
+	<background name="------------------------" image="background/gray.png" />
 	
 	<background name="Zelda (Blue)" image="background/z_blue.png" />
 	<background name="Zelda (Green)" image="background/z_green.png" />
 	
-	<background name="----------------------------" image="background/gray.png" />
+	<background name="------------------------" image="background/gray.png" />
 	
 	<background name="RedSplitsLive (Red)" image="background/rsl_red.png" />
 	<background name="RedSplitsLive (Black)" image="background/rsl_black.png" />
 	<background name="RedSplitsLive (Gray)" image="background/rsl_gray.png" />
 	<background name="RedSplitsLive (White)" image="background/rsl_white.png" />
 	
-	<background name="----------------------------" image="background/gray.png" />
+	<background name="------------------------" image="background/gray.png" />
 	
 	<background name="Red" image="background/red.png" />
 	<background name="Red (Dark)" image="background/red_dark.png" />
