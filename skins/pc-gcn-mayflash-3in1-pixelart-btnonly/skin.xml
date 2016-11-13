@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<skin name="GameCube (Mayflash 3in1) PixBtns" author="Jimmie1717" type="generic">
+
+	<!-- Resolution: 175x52 -->
+	
+	<!-- Layout:
+			 .-.  ABLR   ^
+			| J | XYZS < C >
+			 `-`  <>v^   v
+	-->
+	
+	<background name="Black" image="background/black.png" />
+	<background name="Gray" image="background/gray.png" />
+	<background name="Green" image="background/green.png" />
+	<background name="Lime" image="background/green_lime.png" />
+	<background name="Blue" image="background/blue.png" />
+	<background name="Light Blue" image="background/blue_light.png" />
+	<background name="Purple" image="background/purple.png" />
+	<background name="Red" image="background/red.png" />
+	<background name="Orange" image="background/orange.png" />
+	<background name="Yellow" image="background/yellow.png" />
+	
+	<background name="----------------------------" image="background/black.png" />
+	
+	<background name="Gray (Dark)" image="background/gray_dark.png" />
+	<background name="Green (Dark)" image="background/green_dark.png" />
+	<background name="Lime (Dark)" image="background/green_lime_dark.png" />
+	<background name="Blue (Dark)" image="background/blue_dark.png" />
+	<background name="Light Blue (Dark)" image="background/blue_light_dark.png" />
+	<background name="Purple (Dark)" image="background/purple_dark.png" />
+	<background name="Red (Dark)" image="background/red_dark.png" />
+	<background name="Orange (Dark)" image="background/orange_dark.png" />
+	<background name="Yellow (Dark)" image="background/yellow_dark.png" />
+	
+	
+	<background name="----------------------------" image="background/black.png" />
+	
+	<background name="TEST" image="background/test.png" />
+	<background name="TEST (Green)" image="background/test_green.png" />
+	<background name="TEST (Magenta)" image="background/test_magenta.png" />
+	
+	<stick xname="x" yname="y" image="stick/joystick.png" x="18" y="16" 
+		xrange="12" yrange="12" yreverse="true" />
+	<stick xname="z" yname="rz" image="stick/cstick.png" x="137" y="16"
+		xrange="12" yrange="12" yreverse="true" />
+
+	<button name="b0" image="button/a.png" x="54" y="1" />
+	<button name="b1" image="button/b.png" x="71" y="1" />
+	<button name="b4" image="button/l.png" x="88" y="1" />
+	<button name="b5" image="button/r.png" x="105" y="1" />
+	
+	<button name="b2" image="button/x.png" x="54" y="18" />
+	<button name="b3" image="button/y.png" x="71" y="18" />
+	<button name="b6" image="button/z.png" x="88" y="18" />
+	<button name="b7" image="button/start.png" x="105" y="18" />
+
+	<button name="b8" image="dpad/left.png" x="54" y="35" />
+	<button name="b9" image="dpad/right.png" x="71" y="35" />
+	<button name="b10" image="dpad/down.png" x="88" y="35" />
+	<button name="b11" image="dpad/up.png" x="105" y="35" />
+	
+	<rangebutton name="s0" image="button/l_half.png" x="88" y="1"  from="0.05" to="0.95"/>
+	<rangebutton name="s1" image="button/r_half.png" x="105" y="1" from="0.05" to="0.95"/>
+
+</skin>

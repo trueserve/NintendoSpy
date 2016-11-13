@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<skin name="GameCube (Mayflash 3in1) Pixel" author="Jimmie1717" type="generic">
+
+	<!-- Resolution: 175x122 -->
+
+	<!-- Backgrounds-->
+	<background name="Default (Gray)" image="background/gray.png" />
+	<background name="Wavebird Gray" image="background/gray_light.png" />
+	<background name="Jet Black" image="background/black.png" />
+	<background name="White" image="background/white.png" />
+	<background name="Spice" image="background/orange_spice.png" />
+	<background name="Emerald Blue" image="background/blue_emerald.png" />
+	<background name="Indigo" image="background/indigo.png" />
+	
+	<background name="----------------------------" image="background/gray.png" />
+	
+	<background name="Jet Black (Smash)" image="background/smash_black.png" />
+	<background name="White (Smash)" image="background/smash_white.png" />
+	
+	<background name="----------------------------" image="background/gray.png" />
+	
+	<background name="Star Fox (Arwing)" image="background/sf_arwing.png" />
+	<background name="Star Fox (Gray)" image="background/sf_gray_light.png" />
+	
+	<background name="----------------------------" image="background/gray.png" />
+	
+	<background name="Zelda (Blue)" image="background/z_blue.png" />
+	<background name="Zelda (Green)" image="background/z_green.png" />
+	
+	<background name="----------------------------" image="background/gray.png" />
+	
+	<background name="RedSplitsLive (Red)" image="background/rsl_red.png" />
+	<background name="RedSplitsLive (Black)" image="background/rsl_black.png" />
+	<background name="RedSplitsLive (Gray)" image="background/rsl_gray.png" />
+	<background name="RedSplitsLive (White)" image="background/rsl_white.png" />
+	
+	<background name="----------------------------" image="background/gray.png" />
+	
+	<background name="Red" image="background/red.png" />
+	<background name="Red (Dark)" image="background/red_dark.png" />
+	<background name="Pink" image="background/pink.png" />
+	<background name="Purple" image="background/purple.png" />
+	<background name="Purple (Light)" image="background/purple_light.png" />
+	<background name="Blue" image="background/blue.png" />
+	<background name="Blue (Light)" image="background/blue_light.png" />
+	<background name="Green" image="background/green.png" />
+	<background name="Green (Dark)" image="background/green_dark.png" />
+	<background name="Green (Lime)" image="background/green_lime.png" />
+	<background name="Yellow" image="background/yellow.png" />
+	<background name="Yellow (Dark)" image="background/yellow_dark.png" />
+	<background name="Orange" image="background/orange.png" />
+	
+	<!-- A -->
+	<button name="b0" image="button/clear/a.png" x="128" y="32" />
+	<!-- B -->
+	<button name="b1" image="button/clear/b.png" x="114" y="48" />
+	<!-- X -->
+	<button name="b2" image="button/clear/x.png" x="152" y="27" />
+	<!-- Y -->
+	<button name="b3" image="button/clear/y.png" x="123" y="19" />
+	<!-- Z -->
+	<button name="b6" image="button/clear/z.png" x="126" y="5" />
+	<!-- Start -->
+	<button name="b7" image="button/clear/start.png" x="83" y="42" />
+	<!-- L -->
+	<button name="b4" image="button/clear/l.png" x="16" y="0" />
+	<!-- R -->
+	<button name="b5" image="button/clear/r.png" x="128" y="0" />
+	
+	<!-- L Analog -->
+	<rangebutton name="s0" image="trigger_analog/black/l.png" x="1" y="51" from="0.07" to="1.00" direction="up"/>
+	<!-- R Analog -->
+	<rangebutton name="s1" image="trigger_analog/black/r.png" x="143" y="51" from="0.07" to="1.00" direction="up"/>
+	
+	<!-- Dpad -->
+	<button name="b8" image="button/clear/left.png" x="47" y="80" />
+	<button name="b9" image="button/clear/right.png" x="59" y="80" />
+	<button name="b10" image="button/clear/down.png" x="55" y="84" />
+	<button name="b11" image="button/clear/up.png" x="55" y="72" />
+	
+	<!-- Joystick -->
+	<stick xname="x" yname="y" image="stick/joystick.png" x="21" y="30" xrange="10" yrange="10" yreverse="true" />
+	
+	<!-- Cstick -->
+	<stick xname="z" yname="rz" image="stick/cstick.png" x="106" y="74" xrange="6" yrange="6" yreverse="true" />
+	
+</skin>
