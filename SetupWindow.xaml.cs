@@ -75,6 +75,11 @@ namespace NintendoSpy
                     _vm.Ports.UpdateContents(SerialPort.GetPortNames());
                     break;
                 }
+                case 0x04: { // pc gamepad
+                    string[] inputnum = new string[8] { "1", "2", "3", "4", "5", "6", "7", "8" };
+                    _vm.Ports.UpdateContents(inputnum);
+                    break;
+                }
                 default: { // xinput and dinput 0-3
                     string[] inputnum = new string[4] {"1", "2", "3", "4"};
                     _vm.Ports.UpdateContents(inputnum);
